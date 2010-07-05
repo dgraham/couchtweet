@@ -1,0 +1,20 @@
+<%- unless (defined? info_off) && info_off -%>
+  <ul id="user-info">
+    <li><strong>Name</strong> <%= h user.name %></li>
+    <li><strong>Location</strong> <%= h user.location %></li>
+    <li><strong>Web</strong> <%= h user.url %></li>
+    <li><strong>Bio</strong> <%= h user.bio %></li>
+  </ul>
+<%- end -%>
+<ul id="user-stats">
+  <li><%= link_to "<span class='count'>#{@following_count}</span> following",
+            user_following_index_path(user.id) %></li>
+  <li><%= link_to "<span class='count'>#{@follower_count}</span> followers",
+            user_followers_path(user.id) %></li>
+</ul>
+<ul id="user-links">
+  <li><%= link_to 'Tweets', user_path(user.id) %> <strong><%= @tweet_count %></strong></li>
+  <li><%= link_to 'Favorites', user_favorites_path(user.id) %></li>
+  <li><%= link_to 'Popular', user_popular_index_path(user.id) %></li>
+</ul>
+

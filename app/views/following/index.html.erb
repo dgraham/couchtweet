@@ -1,0 +1,9 @@
+<h2><%= h @user.id %> follows <%= pluralize(@following_count, 'person', 'people') %></h2>
+<ul>
+<%- @following.each do |f| -%>
+  <li><%= link_to f.user_id, user_path(f.user_id) %></li>
+<%- end -%>
+</ul>
+<%- content_for :sidebar do -%>
+  <%= render :partial => 'users/sidebar', :locals => {:user => @user} %>
+<%- end -%>

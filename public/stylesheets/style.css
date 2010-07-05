@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+  background-color: #f0f0f0;
+}
+body {
+  color: #222;
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 14px;
+  width: 760px;
+  margin: 0 auto;
+  position: relative;
+}
+body.narrow {
+  width: 600px;
+}
+h1 {
+  font-weight: 100;
+  width: 750px;
+  margin: 10px auto;
+}
+h2 {
+  font-weight: 300;
+  font-size: 140%;
+  margin-bottom: 5px;
+}
+h2#user-title {
+  font-weight: bold;
+  font-size: 200%;
+  margin-left: 5px;
+}
+h3 {
+  font-weight: 300;
+  font-size: 100%;
+  margin-bottom: 5px;
+}
+a {
+  color: #cb2526;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a img {
+  border: none;
+}
+ul {
+  list-style: none;
+}
+textarea {
+  font-size: 100%;
+  padding: 2px;
+}
+#content {
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  min-height: 200px;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 7px;
+}
+#nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+#nav li:last-child {
+  margin-right: 0;
+}
+#footer {
+  margin: 20px auto;
+  padding: 5px;
+  background-color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#sidebar {
+  min-height: 100%;
+  width: 180px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #f8f8f8;
+  font-size: 12px;
+  border-left: 1px solid #efefef;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#sidebar-container {
+  padding: 10px;
+}
+#tweets li:first-child {
+  font-size: 180%;
+}
+#content > ul {
+  width: 535px;
+}
+#content > ul li {
+  border-bottom: 1px solid #eee; 
+  padding: 5px;
+  min-height: 48px;
+}
+#content > ul li:hover {
+  background-color: #f7f7f7;
+}
+#content > ul a {
+  font-weight: bold;
+}
+#content > ul li span a {
+  font-weight: normal;
+  color: inherit;
+}
+#content > ul li span {
+  font-size: 11px;
+  color: #a2a2a2;
+  display: block;
+}
+#tweet-form {
+  width: 535px;
+  margin-bottom: 20px;
+}
+#tweet-form textarea {
+  width: 98%;
+  height: 50px;
+  margin-bottom: 5px;
+  display: block;
+  border: 1px solid #aaa;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+#tweet-form input[type="submit"] {
+  float: right;
+}
+#user-stats {
+  margin-top: 10px;
+}
+#user-stats li {
+  display: inline-block;
+  margin-right: 15px;
+}
+#user-stats li a span.count {
+  font-weight: bold;
+  display: block;
+  color: #222;
+}
+#user-stats li a:hover span.count {
+  color: inherit;
+  text-decoration: none;
+}
+#user-links {
+  margin-top: 10px;
+  margin: 10px -10px 0 -10px;
+}
+#user-links li {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+#user-links li:hover {
+  background-color: #fff;
+}
+#user-links li a:hover {
+  text-decoration: none;
+}
+#user-links li strong {
+  float: right;
+}
+#current-user-info h3 a {
+  font-weight: bold;
+  color: inherit;
+}
+#current-user-info h3 a:hover {
+  text-decoration: none;
+}
+#current-user-info h3 a:hover #tweet-count {
+  text-decoration: underline;
+}
+#current-user-info h3 #tweet-count {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+}
+#user-info li {
+  margin-bottom: 3px;
+}
+#tweet-text {
+  font-size: 200%;
+  font-family: Georgia, serif;
+}
+#tweet-date {
+  font-size: 11px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin: 10px 0;
+}
+#tweet-author a {
+  display: block;
+  font-size: 24px;
+}
+#login-form {
+  width: 50%;
+  margin: 50px auto;
+}
+#login-form input[type="text"],
+#login-form input[type="password"] {
+  width: 98%;
+  display: block;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+#login-form input[type="submit"] {
+  float: right;
+}

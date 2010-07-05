@@ -1,0 +1,12 @@
+<h2 id="user-title"><%= h @user.id %></h2>
+<ul id="tweets">
+<%- @tweets.each do |t| -%>
+  <li><%= h t.text %>
+  <span><%= link_to datef(t.created_at), user_status_path(@user.id, t.id) %> via <%= h t.source %></span>
+  </li>
+<%- end -%>
+</ul>
+
+<%- content_for :sidebar do -%>
+  <%= render :partial => 'sidebar', :locals => {:user => @user} %>
+<%- end -%>
