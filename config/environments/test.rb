@@ -28,3 +28,4 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 TWEETS_DB = CouchRest.database!('http://localhost:5984/couchtweet')
+RestClient.put("#{TWEETS_DB.server.uri}/_config/uuids/algorithm", '"utc_random"')

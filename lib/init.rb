@@ -8,10 +8,6 @@
 # This creates users with ids of user_0, user_1, etc. and passwords
 # of "USER_NAME password". To sign into the Rails application, just use
 # user_1 and "user_1 password".
-#
-# Before running this script, make sure you have CouchDB's uuid algorithm
-# set to utc_random in the etc/couchdb/local.ini file. We need that to sort
-# tweets in the timeline properly.
 
 $LOAD_PATH.unshift(File.dirname(File.expand_path(__FILE__)))
 
@@ -25,6 +21,9 @@ USERS = 100
 MAX_FOLLOWERS_PER_USER = (USERS * 0.1).to_i
 MAX_TWEETS_PER_USER = 100
 MAX_FAVORITES_PER_USER = 250
+
+# We need utc_random to sort tweets in the timeline properly.
+RestClient.put("#{DB.server.uri}/_config/uuids/algorithm", '"utc_random"')
 
 def create_views
   puts "Creating views . . ."

@@ -17,3 +17,4 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 TWEETS_DB = CouchRest.database!('http://localhost:5984/couchtweet')
+RestClient.put("#{TWEETS_DB.server.uri}/_config/uuids/algorithm", '"utc_random"')
