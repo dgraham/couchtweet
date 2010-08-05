@@ -60,7 +60,6 @@ textarea {
   position: relative;
   min-height: 200px;
   background-color: #fff;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
@@ -69,7 +68,6 @@ textarea {
   right: 0;
   top: 0;
   background-color: #fff;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding: 7px;
@@ -85,7 +83,6 @@ textarea {
   margin: 20px auto;
   padding: 5px;
   background-color: #fff;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
@@ -98,8 +95,6 @@ textarea {
   background-color: #f8f8f8;
   font-size: 12px;
   border-left: 1px solid #efefef;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomright: 5px;
   border-top-right-radius: 5px;
@@ -144,7 +139,6 @@ textarea {
   margin-bottom: 5px;
   display: block;
   border: 1px solid #aaa;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
