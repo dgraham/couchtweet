@@ -27,7 +27,6 @@ class Tweet < CouchRest::ExtendedDocument
   def save
     results = database.bulk_save([self], false)
     self['_id'] = results.first['id']
-    mark_as_saved
     true
   end
 

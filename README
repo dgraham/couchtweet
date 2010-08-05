@@ -9,21 +9,20 @@ high traffic load tests.
 
 == Getting Started
 
-1. Make sure CouchDB's uuid algorithm is set to utc_random in
-   etc/couchdb/local.ini.  We need this for tweet sorting to work properly.
-2. Start CouchDB.
-3. cd couchtweet
-4. Run lib/init.rb to populate CouchDB with some initial documents (users,
+1. Start CouchDB.
+2. cd couchtweet
+3. Run lib/init.rb to populate CouchDB with some initial documents (users,
    tweets, followers, etc.)
-5. Run script/server to start Rails.
-6. Go to http://localhost:3000/ in your web browser.
-7. Sign in with user_1 and "user_1 password".
-8. Take a peek at lib/views.rb for some hints on map/reduce view design.
+4. Run script/server to start Rails.
+5. Go to http://localhost:3000/ in your web browser.
+6. Sign in with user_1 and "user_1 password".
+7. Take a peek at lib/views.rb for some hints on map/reduce view design.
 
 == Dependencies
 
-* couchrest >= 0.37
-* couchdb >= 0.11
+* couchrest >= 1.0.0
+* couchrest_extended_document >= 1.0.0
+* couchdb >= 1.0.0
 * rails >= 2.3.8
 
 == Contact
