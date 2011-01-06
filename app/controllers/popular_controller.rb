@@ -1,5 +1,4 @@
 class PopularController < ApplicationController
-
   def index
     @user = User.get(params[:user_id])
     @tweets = Favorite.find_by_author_id(@user.id).map do |row|
@@ -9,5 +8,4 @@ class PopularController < ApplicationController
     @following_count = Follower.find_following_count(@user.id)
     @follower_count = Follower.find_follower_count(@user.id)
   end
-
 end

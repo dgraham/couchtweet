@@ -1,10 +1,9 @@
-<h2><%= h @user.id %>'s popular tweets</h2>
+<h2><%= @user.id %>'s popular tweets</h2>
 <ul>
 <%- @tweets.each do |t, count| -%>
-  <li><%= link_to t.user_id, user_path(t.user_id) %> <%= h t.text %>
-  <span><%= link_to datef(t.created_at),
-              user_status_path(t.user_id, t.id) %>
-    via <%= h t.source %>
+  <li><%= link_to t.user_id, user_path(t.user_id) %> <%= t.text %>
+  <span><%= link_to datef(t.created_at), user_statu_path(t.user_id, t.id) %>
+    via <%= t.source %>
     (<%= pluralize(count, 'person', 'people') %> liked this)
   </span>
   </li>

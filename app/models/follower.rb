@@ -35,5 +35,4 @@ class Follower < CouchRest::ExtendedDocument
   def self.by_follower_id(args={})
     database.view('follower/by_follower_id', args)['rows']
   end
-
 end

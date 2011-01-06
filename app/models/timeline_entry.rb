@@ -15,5 +15,4 @@ class TimelineEntry < CouchRest::ExtendedDocument
   def self.view(args={})
     database.view('timeline/by_user_id', args)['rows']
   end
-
 end

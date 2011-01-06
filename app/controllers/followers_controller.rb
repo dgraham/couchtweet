@@ -8,5 +8,4 @@ class FollowersController < ApplicationController
     @following_count = Follower.find_following_count(@user.id)
     @follower_count = Follower.find_follower_count(@user.id)
   end
-
 end

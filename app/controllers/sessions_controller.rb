@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-
   def new
   end
 
   def create
-    user = User.get(params[:username])
-    if user && !params[:password].blank? && user.password == hmac(params[:password], user.id)
+    name, password = params.values_at(:username, :password)
+    missing = [name, password].any? {|v| v.blank? }
+    redirect_to new_session_path and return if missing
+    user = User.get(name)
+    if user && BCrypt::Password.new(user.password) == password
       session[:user_id] = user.id
       redirect_to root_path
     else
@@ -17,12 +19,4 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_path
   end
-
-  private
-
-  def hmac(key, data)
-    digest = OpenSSL::Digest::Digest.new("sha512")
-    OpenSSL::HMAC.hexdigest(digest, key, data)
-  end
-
 end

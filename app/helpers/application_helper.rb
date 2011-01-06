@@ -1,6 +1,4 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-
   def datef(time)
     suffixes = %w[th st nd rd th th th th th th]
     if time < 1.day.ago
@@ -11,5 +9,4 @@ module ApplicationHelper
       time_ago_in_words(time) + " ago"
     end
   end
-
 end

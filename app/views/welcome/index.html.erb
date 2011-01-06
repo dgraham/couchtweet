@@ -1,4 +1,4 @@
-<form id="tweet-form" action="<%= user_status_index_path(@current_user.id) %>" method="post">
+<form id="tweet-form" action="<%= user_status_path(@current_user.id) %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
   <h2>What's happening?</h2>
   <textarea id="status-text" name="status"></textarea>
@@ -6,10 +6,9 @@
 </form>
 <ul>
 <%- @tweets.each do |t| -%>
-  <li><%= link_to t.user_id, user_path(t.user_id) %> <%= h t.text %>
-  <span><%= link_to datef(t.created_at),
-              user_status_path(t.user_id, t.id) %>
-    via <%= h t.source %></span>
+  <li><%= link_to t.user_id, user_path(t.user_id) %> <%= t.text %>
+  <span><%= link_to datef(t.created_at), user_statu_path(t.user_id, t.id) %>
+    via <%= t.source %></span>
   </li>
 <%- end -%>
 </ul>

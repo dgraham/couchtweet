@@ -7,5 +7,4 @@ class WelcomeController < ApplicationController
     @follower_count = Follower.find_follower_count(@current_user.id)
     @following_count = Follower.find_following_count(@current_user.id)
   end
-
 end

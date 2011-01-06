@@ -31,5 +31,4 @@ class StatusController < ApplicationController
       tweet.database.bulk_save(batch, false)
     end
   end
-
 end

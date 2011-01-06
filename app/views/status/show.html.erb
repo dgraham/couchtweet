@@ -1,5 +1,5 @@
 <% @sidebar_off = true %>
-<p id="tweet-text"><%= h @tweet.text %></p>
+<p id="tweet-text"><%= @tweet.text %></p>
 <p id="tweet-date">
 <%= datef(@tweet.created_at) %>
 (<%= pluralize(@favorite_count, 'person', 'people') %> liked this)
@@ -7,5 +7,5 @@
 
 <div id="tweet-author">
   <%= link_to @user.id, user_path(@user.id) %>
-  <%= h @user.name %>
+  <%= @user.name %>
 </div>

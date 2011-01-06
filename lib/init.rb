@@ -3,16 +3,17 @@
 # Run this script to save an initial data set to CouchDB before using the
 # Rails application. Tweak the constants at the top of this script to get
 # a bigger or smaller data set. For large numbers of users and tweets,
-# we probably need to point this script at a Lounge cluster of a few machines.
+# we probably need to point this script at a CouchProxy cluster of a few machines.
 #
-# This creates users with ids of user_0, user_1, etc. and passwords
+# This creates users with ids of user0, user1, etc. and passwords
 # of "USER_NAME password". To sign into the Rails application, just use
-# user_1 and "user_1 password".
+# user1 and "user1 password".
 
 $LOAD_PATH.unshift(File.dirname(File.expand_path(__FILE__)))
 
 require 'rubygems'
 require 'active_record'
+require 'bcrypt'
 require 'couchrest'
 require 'views'
 
@@ -104,7 +105,7 @@ def user(num)
     'name' => "#{name}'s real name",
     'email' => "#{name}@twitter.int",
     'bio' => "This is the bio text for #{name}.",
-    'password' => hmac("#{name} password", name),
+    'password' => BCrypt::Password.create("#{name} password"),
     'lang' => lang[rand(lang.size)],
     'location' => location[rand(location.size)],
     'url' => 'http://www.google.com/',
@@ -117,17 +118,12 @@ def user(num)
 end
 
 def user_name(num)
-  "user_#{num}"
+  "user#{num}"
 end
 
 def created_at
   years = 60 * 60 * 24 * 365 * 3
   date = Time.now - rand(years)
-end
-
-def hmac(key, data)
-  digest = OpenSSL::Digest::Digest.new("sha512")
-  OpenSSL::HMAC.hexdigest(digest, key, data)
 end
 
 def follower(user_num, follower_num)

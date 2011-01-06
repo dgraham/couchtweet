@@ -40,5 +40,4 @@ class Favorite < CouchRest::ExtendedDocument
   def self.by_author_id(args={})
     database.view('favorite/by_author_id', args)['rows']
   end
-
 end

@@ -31,8 +31,8 @@ class Tweet < CouchRest::ExtendedDocument
   end
 
   private
+
   def self.view(args={})
     database.view('tweet/by_user_id', args)['rows']
   end
-
 end

@@ -4,7 +4,7 @@ CouchTweet is an example Rails web application that makes learning about
 Apache CouchDB and the CouchRest Ruby gem easier.  It uses Twitter's data
 model and website as a template.  Because CouchDB is a distributed key/value
 database, CouchTweet can scale across many servers or run on just a single
-laptop.  We can use CouchDB Lounge to build a cluster of CouchTweet nodes for
+laptop.  We can use CouchProxy to build a cluster of CouchTweet nodes for
 high traffic load tests.
 
 == Getting Started
@@ -13,17 +13,17 @@ high traffic load tests.
 2. cd couchtweet
 3. Run lib/init.rb to populate CouchDB with some initial documents (users,
    tweets, followers, etc.)
-4. Run script/server to start Rails.
+4. Run "rails server" to start Rails.
 5. Go to http://localhost:3000/ in your web browser.
-6. Sign in with user_1 and "user_1 password".
+6. Sign in with user1 and "user1 password".
 7. Take a peek at lib/views.rb for some hints on map/reduce view design.
 
 == Dependencies
 
-* couchrest >= 1.0.0
+* couchrest >= 1.0.1
 * couchrest_extended_document >= 1.0.0
 * couchdb >= 1.0.0
-* rails >= 2.3.8
+* rails >= 3.0.3
 
 == Contact
 

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CouchTweet</title>
-<%= stylesheet_link_tag('style') %>
+  <title>CouchTweet</title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
 </head>
-<body <%= @sidebar_off ? 'class="narrow"' : '' %>>
+<body <%= @sidebar_off ? 'class="narrow"'.html_safe : '' %>>
 <h1><%= link_to image_tag('logo.png'), root_path %></h1>
 <ul id="nav">
   <li><%= link_to 'Home', root_path %></li>
   <%- if @current_user -%>
     <li><%= link_to 'Profile', user_path(@current_user.id) %></li>
-    <li><%= link_to 'Sign out', session_path(@current_user.id), :method => :delete %></li>
+    <li><%= link_to 'Sign out', logout_path %></li>
   <%- else -%>
     <li><%= link_to 'Sign in', new_session_path %></li>
   <%- end -%>
@@ -27,9 +28,9 @@
 </div>
 <div id="footer">
   <p>
-  An example <a href="http://couchdb.apache.org/">Apache CouchDB</a> app,
-  using <a href="http://twitter.com/">Twitter</a>'s data model.
-  Source code is available at <a href="http://github.com/dgraham/couchtweet">GitHub</a>.
+  An example <a href="https://couchdb.apache.org/">Apache CouchDB</a> app,
+  using <a href="https://twitter.com/">Twitter</a>'s data model.
+  Source code is available at <a href="https://github.com/dgraham/couchtweet">GitHub</a>.
   </p>
 </div>
 </body>
