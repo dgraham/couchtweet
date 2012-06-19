@@ -13,7 +13,7 @@ class Seeds
   #
   # Returns nothing.
   def self.start
-    new(users: 2, followers: 5, tweets: 25, favorites: 3).start
+    new(users: 25, followers: 5, tweets: 25, favorites: 3).start
   end
 
   # Creates a new Seeds object to use to populate the database with initial
