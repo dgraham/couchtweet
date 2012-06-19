@@ -45,6 +45,3 @@ module Couchtweet
     config.filter_parameters += [:password]
   end
 end
-
-TWEETS_DB = CouchRest.database!('http://localhost:5984/couchtweet')
-RestClient.put("#{TWEETS_DB.server.uri}/_config/uuids/algorithm", '"utc_random"')
