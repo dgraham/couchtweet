@@ -32,4 +32,11 @@ Couchtweet::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Assign a fresh utc_random uuid from the database to each document when
+  # creating it, avoiding CouchRest's internal uuid cache. This is only needed
+  # in low volume development and test environments to avoid confusing tweet
+  # ordering. In production, using the uuid cache is fine because tweets are
+  # created frequently and the cache is refreshed often.
+  CouchRest::Model::Base.server.uuid_batch_count = 1
 end
