@@ -1,43 +1,37 @@
-class Favorite < CouchRest::ExtendedDocument
-  use_database TWEETS_DB
+class Favorite < CouchRest::Model::Base
+  belongs_to :user
+  belongs_to :author, :class_name => User
+  belongs_to :tweet
 
-  property :user_id
-  property :author_id
-  property :tweet_id
+  design do
+    view :by_user_id,
+      map: %q{
+        function(doc) {
+          if (doc.type == 'Favorite' && doc.user_id && doc.tweet_id) {
+            emit(doc.user_id, {_id: doc.tweet_id});
+          }
+        }
+      },
+      reduce: '_count'
 
-  def self.find_count_by_user_id(user_id)
-    rows = by_user_id(:key => user_id)
-    rows.empty? ? 0 : rows.first['value']
-  end
+    view :by_tweet_id,
+      map: %q{
+        function(doc) {
+          if (doc.type == 'Favorite' && doc.user_id && doc.tweet_id) {
+            emit(doc.tweet_id, doc.user_id);
+          }
+        }
+      },
+      reduce: '_count'
 
-  def self.find_count_by_tweet_id(tweet_id)
-    rows = by_tweet_id(:key => tweet_id)
-    rows.empty? ? 0 : rows.first['value']
-  end
-  
-  def self.find_by_user_id(user_id)
-    rows = by_user_id(:key => user_id, :include_docs => true, :reduce => false,
-      :descending => true)
-    rows.map {|row| Tweet.new(row['doc']) }
-  end
-
-  def self.find_by_author_id(author_id)
-    rows = by_author_id(:startkey => [author_id, nil],
-      :endkey => [author_id, 'ZZZZZZZ'], :group => true)
-    rows.map {|row| [row['key'][1], row['value']] }
-  end
-
-  private
-
-  def self.by_user_id(args={})
-    database.view('favorite/by_user_id', args)['rows']
-  end
-
-  def self.by_tweet_id(args={})
-    database.view('favorite/by_tweet_id', args)['rows']
-  end
-
-  def self.by_author_id(args={})
-    database.view('favorite/by_author_id', args)['rows']
+    view :by_author_id,
+      map: %q{
+        function(doc) {
+          if (doc.type == 'Favorite' && doc.author_id && doc.tweet_id) {
+            emit([doc.author_id, doc.tweet_id], {_id: doc.tweet_id});
+          }
+        }
+      },
+      reduce: '_count'
   end
 end

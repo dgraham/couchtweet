@@ -1,18 +1,21 @@
-class TimelineEntry < CouchRest::ExtendedDocument
-  use_database TWEETS_DB
+class TimelineEntry < CouchRest::Model::Base
+  belongs_to :user
+  belongs_to :tweet
 
-  property :user_id
-  property :tweet_id
-
-  def self.find_recent_tweets(user_id)
-    rows = view(:key => user_id, :include_docs => true, :limit => 20,
-      :descending => true)
-    rows.map {|row| Tweet.new(row['doc']) }
-  end
-
-  private
-
-  def self.view(args={})
-    database.view('timeline/by_user_id', args)['rows']
+  design do
+    # Use the linked document feature in this view so querying the view with
+    # +?include_docs=true+ includes the Tweet doc rather than the TimelineEntry
+    # doc. We only need to do one query for timeline tweets rather than n + 1
+    # queries to pull back all of the Tweet docs. This is a nice way to fake a
+    # relational database foreign key relationship.
+    view :by_user_id,
+      map: %q{
+        function(doc) {
+          if (doc.type == 'TimelineEntry' && doc.user_id && doc.tweet_id) {
+            emit(doc.user_id, {_id: doc.tweet_id});
+          }
+        }
+      },
+      reduce: '_count'
   end
 end

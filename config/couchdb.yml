@@ -1,0 +1,26 @@
+development:
+  protocol: 'http'
+  host: localhost
+  port: 5984
+  prefix: couchtweet
+  suffix: dev
+  username:
+  password:
+
+test:
+  protocol: 'http'
+  host: localhost
+  port: 5984
+  prefix: couchtweet
+  suffix: test
+  username:
+  password:
+
+production:
+  protocol: 'https'
+  host: localhost
+  port: 443
+  prefix: couchtweet
+  suffix: prod
+  username:
+  password:

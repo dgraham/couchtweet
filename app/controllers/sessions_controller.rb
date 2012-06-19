@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     missing = [name, password].any? {|v| v.blank? }
     redirect_to new_session_path and return if missing
     user = User.get(name)
-    if user && BCrypt::Password.new(user.password) == password
+    if user && user.authenticate(password)
       session[:user_id] = user.id
       redirect_to root_path
     else

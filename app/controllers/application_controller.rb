@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :load_user
 
+  attr_reader :current_user
+
   private
 
   def load_user
