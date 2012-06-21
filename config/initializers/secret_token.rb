@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Couchtweet::Application.config.secret_token = '18899e5bb72c9dc96fc6e04eaea8870e75d0771400d62fdc3843c509465f4b53303e0df9a78d8e640bdd7c24151e066e9ad42c296551897f9a797132bfb9797c'
+Couchtweet::Application.config.secret_token = 'fd73b58be219ef1ff2ebaca1df007c2c57003ab3c8db97a4fa9ecdb44affbc050295d5f63d37cfc545333bd6555d0ffb81aa20a4475d22c2f922050e819438b7'
