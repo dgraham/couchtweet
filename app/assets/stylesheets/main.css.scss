@@ -1,3 +1,20 @@
+
+@mixin linear-gradient($start, $stop) {
+  background: $stop;
+  background: -moz-linear-gradient($start, $stop);
+  background: -ms-linear-gradient($start, $stop);
+  background: -o-linear-gradient($start, $stop);
+  background: -webkit-linear-gradient($start, $stop);
+}
+
+@mixin radial-gradient($start, $stop) {
+  background: $stop;
+  background: -moz-radial-gradient($start, $stop);
+  background: -ms-radial-gradient($start, $stop);
+  background: -o-radial-gradient($start, $stop);
+  background: -webkit-radial-gradient($start, $stop);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,11 +22,7 @@
 
 html {
   height: 100%;
-  background: #f0f0f0;
-  background: -moz-radial-gradient(#fff, #f0f0f0);
-  background: -ms-radial-gradient(#fff, #f0f0f0);
-  background: -o-radial-gradient(#fff, #f0f0f0);
-  background: -webkit-radial-gradient(#fff, #f0f0f0);
+  @include radial-gradient(#fff, #f0f0f0);
 }
 
 body {
@@ -72,7 +85,7 @@ textarea {
 }
 
 header#top {
-  background: -webkit-linear-gradient(#222, #444);
+  @include linear-gradient(#222, #444);
   border-bottom: 1px solid #fff;
   box-shadow: inset 0 0 10px #000, 0 0 5px rgba(0, 0, 0, 0.3);
   height: 50px;
