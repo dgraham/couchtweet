@@ -7,17 +7,21 @@
   {{ csrf_meta_tags }}
 </head>
 <body {{ body_class }}>
-  <h1>{{ link_to_logo }}</h1>
-  <ul id="nav">
-    <li>{{ link_to_home }}</li>
-    {{#current_user}}
-      <li>{{ link_to_profile }}</li>
-      <li>{{ link_to_logout }}</li>
-    {{/current_user}}
-    {{^current_user}}
-      <li>{{ link_to_login }}</li>
-    {{/current_user}}
-  </ul>
+  <header>
+    <h1>{{ link_to_logo }}</h1>
+    <nav>
+      <ul>
+        <li>{{ link_to_home }}</li>
+        {{#current_user}}
+          <li>{{ link_to_profile }}</li>
+          <li>{{ link_to_logout }}</li>
+        {{/current_user}}
+        {{^current_user}}
+          <li>{{ link_to_login }}</li>
+        {{/current_user}}
+      </ul>
+    </nav>
+  </header>
   <div id="content">
     {{ yield }}
     {{#sidebar}}
