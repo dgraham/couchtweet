@@ -4,7 +4,6 @@ class StatusController < ApplicationController
   def show
     @tweet = Tweet.get(params[:id])
     @user = @tweet.user
-    @favorite_count = @tweet.favorites.count
   end
 
   def create

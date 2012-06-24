@@ -1,0 +1,8 @@
+<h2 id="user-title">{{ user_id }}</h2>
+<ul id="tweets">
+{{#tweets}}
+  <li>{{ tweet.text }}
+  <span>{{ link_to_tweet }} via {{ tweet.source }}</span>
+  </li>
+{{/tweets}}
+</ul>

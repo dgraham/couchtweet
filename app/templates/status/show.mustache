@@ -1,0 +1,12 @@
+<p id="tweet-text">{{ tweet.text }}</p>
+<p id="tweet-date">
+{{ created_at }}
+{{#liked}}
+  ({{ pluralized_favorites }} liked this)
+{{/liked}}
+</p>
+
+<div id="tweet-author">
+  {{ link_to_author }}
+  {{ author_name }}
+</div>

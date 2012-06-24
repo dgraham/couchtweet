@@ -3,6 +3,7 @@ source :rubygems
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'couchrest_model'
 gem 'jquery-rails'
+gem 'mustache-rails', :require => 'mustache/railtie'
 gem 'rails', '3.2.6'
 gem 'thin'
 

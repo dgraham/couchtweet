@@ -1,0 +1,9 @@
+<h2>{{ user_id }}'s {{ pluralized_followers }}</h2>
+<ul>
+{{#followers}}
+  <li>
+    {{ user.name }} {{ link_to_user }}
+    <p>{{ user.bio }}</p>
+  </li>
+{{/followers}}
+</ul>

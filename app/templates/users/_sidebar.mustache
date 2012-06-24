@@ -1,0 +1,23 @@
+<ul id="user-info">
+  <li><strong>Name</strong> {{ user.name }}</li>
+  <li><strong>Location</strong> {{ user.location }}</li>
+  <li><strong>Web</strong> {{ user.url }}</li>
+  <li><strong>Bio</strong> {{ user.bio }}</li>
+</ul>
+<ul id="user-stats">
+  <li>
+    <a href="{{ following_path }}">
+      <span class='count'>{{ following_count }}</span> following
+    </a>
+  </li>
+  <li>
+    <a href="{{ followers_path }}">
+      <span class='count'>{{ follower_count }}</span> followers
+    </a>
+  </li>
+</ul>
+<ul id="user-links">
+  <li><a href="{{ profile_path }}">Tweets</a> <strong>{{ tweet_count }}</strong></li>
+  <li><a href="{{ favorites_path }}">Favorites</a> <strong>{{ favorite_count }}</strong></li>
+  <li><a href="{{ popular_path }}">Popular</a></li>
+</ul>

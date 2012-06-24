@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CouchTweet</title>
+  {{ stylesheets }}
+  {{ javascripts }}
+  {{ csrf_meta_tags }}
+</head>
+<body {{ body_class }}>
+  <h1>{{ link_to_logo }}</h1>
+  <ul id="nav">
+    <li>{{ link_to_home }}</li>
+    {{#current_user}}
+      <li>{{ link_to_profile }}</li>
+      <li>{{ link_to_logout }}</li>
+    {{/current_user}}
+    {{^current_user}}
+      <li>{{ link_to_login }}</li>
+    {{/current_user}}
+  </ul>
+  <div id="content">
+    {{ yield }}
+    {{#sidebar}}
+      <div id="sidebar">
+        <div id="sidebar-container">
+          {{{ sidebar }}}
+        </div>
+      </div>
+    {{/sidebar}}
+  </div>
+  <div id="footer">
+    <p>
+    An example <a href="https://couchdb.apache.org/">Apache CouchDB</a> app,
+    using <a href="https://twitter.com/">Twitter</a>'s data model.
+    Source code is available at <a href="https://github.com/dgraham/couchtweet">GitHub</a>.
+    </p>
+  </div>
+</body>
+</html>
