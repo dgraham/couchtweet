@@ -17,19 +17,7 @@ body {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 18px;
-  width: 700px;
-  margin: 0 auto;
-  position: relative;
-}
-
-body.narrow {
-  width: 600px;
-}
-
-h1 {
-  font-weight: 100;
-  width: 750px;
-  margin: 10px auto;
+  height: 100%;
 }
 
 h2 {
@@ -70,37 +58,69 @@ textarea {
 }
 
 #content {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   margin: 0 auto;
   position: relative;
   min-height: 200px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.1);
+  width: 700px;
 }
 
-nav ul {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 7px;
+.narrow {
+  width: 540px !important;
+}
 
-  li {
-    display: inline-block;
-    margin-right: 10px;
+header#top {
+  background: -webkit-linear-gradient(#222, #444);
+  border-bottom: 1px solid #fff;
+  box-shadow: inset 0 0 10px #000, 0 0 5px rgba(0, 0, 0, 0.3);
+  height: 50px;
+  margin-bottom: 20px;
+
+  img {
+    height: 40px;
+    position: relative;
+    top: 5px;
   }
 
-  li:last-child {
-    margin-right: 0;
+  section {
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  nav ul {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 7px;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+
+      a {
+        text-shadow: 0 1px 1px #000;
+      }
+    }
+
+    li:last-child {
+      margin-right: 0;
+    }
   }
 }
 
-#footer {
+footer#bottom {
   margin: 20px auto;
-  padding: 5px;
+  width: 700px;
   background-color: #fff;
   border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  p {
+    padding: 12px;
+  }
 }
 
 #sidebar {
@@ -131,12 +151,12 @@ nav ul {
     padding-left: 70px;
   }
 
-  li:hover {
-    background-color: #f5f5f5;
+  li:last-child {
+    border: none;
   }
 
-  a {
-
+  li:hover {
+    background-color: #f5f5f5;
   }
 
   li.tweet, li.user {
@@ -185,19 +205,18 @@ li.user {
   margin-bottom: 20px;
 
   textarea {
-    width: 475px;
-    height: 50px;
-    margin: 0 0 5px 12px;
-    display: block;
     border: 1px solid #aaa;
     border-radius: 4px;
-    padding: 6px 8px 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 #fff;
+    display: block;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 13px;
-    line-height: 18px;
-    outline: none;
+    width: 475px;
     height: 19px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 #fff;
+    line-height: 18px;
+    margin: 0 0 5px 12px;
+    padding: 6px 8px 5px;
+    outline: none;
   }
 
   input[type="submit"] {
@@ -272,36 +291,76 @@ li.user {
   margin-bottom: 3px;
 }
 
-#tweet-text {
-  font-size: 200%;
-  font-family: Georgia, serif;
-}
+#tweet-content {
+  padding: 20px 60px 0;
 
-#tweet-date {
-  font-size: 11px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  margin: 10px 0;
-}
+  header {
+    margin: 0 0 20px 60px;
+    position: relative;
 
-#tweet-author a {
-  display: block;
-  font-size: 24px;
+    .fullname {
+      color: #333;
+      display: block;
+      font-size: 18px;
+    }
+
+    .username {
+      font-size: 14px;
+      color: #999;
+    }
+
+    .avatar {
+      border-radius: 5px;
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      top: 0;
+      left: -58px;
+    }
+
+    a {
+      display: block;
+      font-size: 24px;
+    }
+  }
+
+  #tweet-text {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  footer {
+    #tweet-date {
+      font-size: 11px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin: 10px 0;
+    }
+  }
 }
 
 #login-form {
   width: 50%;
   margin: 50px auto;
-}
 
-#login-form input[type="text"],
-#login-form input[type="password"] {
-  width: 98%;
-  display: block;
-  margin-bottom: 10px;
-  padding: 3px;
-}
+  input[type="text"],
+  input[type="password"] {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 #fff;
+    display: block;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 13px;
+    width: 98%;
+    height: 19px;
+    line-height: 18px;
+    margin: 0 0 5px 0;
+    padding: 6px 8px 5px;
+    outline: none;
+  }
 
-#login-form input[type="submit"] {
-  float: right;
+  input[type="submit"] {
+    float: right;
+  }
 }

@@ -6,23 +6,25 @@
   {{ javascripts }}
   {{ csrf_meta_tags }}
 </head>
-<body {{ body_class }}>
-  <header>
-    <h1>{{ link_to_logo }}</h1>
-    <nav>
-      <ul>
-        <li>{{ link_to_home }}</li>
-        {{#current_user}}
-          <li>{{ link_to_profile }}</li>
-          <li>{{ link_to_logout }}</li>
-        {{/current_user}}
-        {{^current_user}}
-          <li>{{ link_to_login }}</li>
-        {{/current_user}}
-      </ul>
-    </nav>
+<body>
+  <header id="top">
+    <section>
+      <h1>{{ link_to_logo }}</h1>
+      <nav>
+        <ul>
+          <li>{{ link_to_home }}</li>
+          {{#current_user}}
+            <li>{{ link_to_profile }}</li>
+            <li>{{ link_to_logout }}</li>
+          {{/current_user}}
+          {{^current_user}}
+            <li>{{ link_to_login }}</li>
+          {{/current_user}}
+        </ul>
+      </nav>
+    </section>
   </header>
-  <div id="content">
+  <div id="content" {{ body_class }}>
     {{ yield }}
     {{#sidebar}}
       <div id="sidebar">
@@ -32,12 +34,13 @@
       </div>
     {{/sidebar}}
   </div>
-  <div id="footer">
+  <footer id="bottom" {{ body_class }}>
     <p>
-    An example <a href="https://couchdb.apache.org/">Apache CouchDB</a> app,
-    using <a href="https://twitter.com/">Twitter</a>'s data model.
-    Source code is available at <a href="https://github.com/dgraham/couchtweet">GitHub</a>.
+      An example <a href="http://rubyonrails.org/">Rails</a>
+      app using <a href="https://couchdb.apache.org/">CouchDB</a>
+      and <a href="https://twitter.com/">Twitter</a>'s data model.
+      Source code is available at <a href="https://github.com/dgraham/couchtweet">GitHub</a>.
     </p>
-  </div>
+  </footer>
 </body>
 </html>

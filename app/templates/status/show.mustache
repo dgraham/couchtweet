@@ -1,12 +1,20 @@
-<p id="tweet-text">{{ tweet.text }}</p>
-<p id="tweet-date">
-{{ created_at }}
-{{#liked}}
-  ({{ pluralized_favorites }} liked this)
-{{/liked}}
-</p>
+<div id="tweet-content">
+  <header>
+    <a href="{{ profile_path }}">
+      <img class="avatar" src="{{ user_gravatar }}" alt="{{ user_name }}"/>
+      <strong class="fullname">{{ user_name }}</strong>
+      <span class="username">@{{ user_id }}</span>
+    </a>
+  </header>
 
-<div id="tweet-author">
-  {{ link_to_author }}
-  {{ author_name }}
+  <p id="tweet-text">{{ tweet.text }}</p>
+
+  <footer>
+    <p id="tweet-date">
+    {{ created_at }}
+    {{#liked}}
+      ({{ pluralized_favorites }} liked this)
+    {{/liked}}
+    </p>
+  </footer>
 </div>

@@ -48,4 +48,12 @@ module ApplicationHelper
   def user_id
     user.id
   end
+
+  def user_name
+    user.name
+  end
+
+  def user_gravatar
+    gravatar_for(user.email)
+  end
 end

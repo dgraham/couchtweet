@@ -25,14 +25,6 @@ module Views
       def pluralized_favorites
         pluralize(tweet.favorites.count, 'person', 'people')
       end
-
-      def link_to_author
-        link_to(user.id, profile_path)
-      end
-
-      def author_name
-        user.name
-      end
     end
   end
 end
