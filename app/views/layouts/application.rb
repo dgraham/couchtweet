@@ -33,7 +33,7 @@ module Views
       end
 
       def link_to_logo
-        link_to(image_tag('logo.png'), root_path)
+        link_to(image_tag('logo.png', alt: 'CouchTweet'), root_path)
       end
 
       def body_class
