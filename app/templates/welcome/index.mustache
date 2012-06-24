@@ -1,14 +1,11 @@
 <form id="tweet-form" action="{{ current_user_status_path }}" method="post">
   <input type="hidden" name="authenticity_token" value="{{ form_authenticity_token }}"/>
   <h2>What's happening?</h2>
-  <textarea id="status-text" name="status"></textarea>
+  <textarea id="status-text" name="status" placeholder="Compose new Tweet..."></textarea>
   <input type="submit" value="Tweet"/>
 </form>
-<ul>
+<ul class="tweets">
 {{#tweets}}
-  <li>
-    {{ link_to_author }} {{ tweet.text }}
-    <span>{{ link_to_tweet }} via {{ tweet.source }}</span>
-  </li>
+  {{> status/tweet }}
 {{/tweets}}
 </ul>

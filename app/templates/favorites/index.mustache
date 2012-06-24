@@ -1,9 +1,6 @@
 <h2>{{ user_id }}'s favorites</h2>
 <ul>
 {{#tweets}}
-  <li>
-    {{ link_to_author }} {{ tweet.text }}
-    <span>{{ link_to_tweet }} via {{ tweet.source }}</span>
-  </li>
+  {{> status/tweet }}
 {{/tweets}}
 </ul>

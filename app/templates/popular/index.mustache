@@ -1,10 +1,6 @@
 <h2>{{ user_id }}'s popular tweets</h2>
 <ul>
 {{#tweets}}
-  <li>{{ link_to_author }} {{ tweet.text }}
-  <span>{{ link_to_tweet }} via {{ tweet.source }}
-    ({{ pluralized_stars }} liked this)
-  </span>
-  </li>
+  {{> status/tweet }}
 {{/tweets}}
 </ul>

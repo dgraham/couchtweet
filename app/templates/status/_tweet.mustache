@@ -1,0 +1,21 @@
+<li class="tweet">
+  <header>
+    <a href="{{ author.url }}">
+      <img class="avatar" src="{{ author.gravatar }}" alt="{{ author.name }}"/>
+      <strong class="fullname">{{ author.name }}</strong>
+      <span class="username">@{{ author.id }}</span>
+    </a>
+    <div class="time">
+      <a href="{{ url }}">
+        <time>{{ created_at.date }}</time>
+      </a>
+    </div>
+  </header>
+  <p>{{ text }}</p>
+  <footer>
+    <span><a href="{{ url }}">{{ created_at.full }}</a> via {{ source }}</span>
+    {{#favorites.any}}
+      <span>({{ favorites.text }} liked this)</span>
+    {{/favorites.any}}
+  </footer>
+</li>
