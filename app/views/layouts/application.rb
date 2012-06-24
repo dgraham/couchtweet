@@ -5,6 +5,9 @@ module Views
     # otherwise it should live in ApplicationHelper.
     class Application < ActionView::Mustache
       include ApplicationHelper
+      include DateHelper
+      include GravatarHelper
+      include TweetHelper
 
       attr_reader :current_user
       attr_reader :user
