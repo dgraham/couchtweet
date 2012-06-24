@@ -12,8 +12,13 @@ module Views
 
       def followers
         user.followers.map do |follower|
-          link = link_to("@#{follower.id}", user_path(follower.id))
-          {user: follower, link_to_user: link}
+          {
+            id: follower.id,
+            name: follower.name,
+            bio: follower.bio,
+            url: user_path(follower.id),
+            gravatar: gravatar_for(follower.email)
+          }
         end
       end
     end

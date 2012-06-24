@@ -1,9 +1,6 @@
 <h2>{{ user_id }} follows {{ pluralized_following }}</h2>
 <ul>
 {{#following}}
-  <li>
-    {{ user.name }} {{ link_to_user }}
-    <p>{{ user.bio }}</p>
-  </li>
+  {{> users/user }}
 {{/following}}
 </ul>
