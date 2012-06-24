@@ -76,7 +76,7 @@ textarea {
   border-radius: 5px;
   margin: 0 auto;
   position: relative;
-  min-height: 200px;
+  min-height: 275px;
   width: 700px;
 }
 
@@ -95,6 +95,8 @@ header#top {
     height: 40px;
     position: relative;
     top: 5px;
+    left: 50%;
+    margin-left: -36px;
   }
 
   section {
@@ -105,7 +107,7 @@ header#top {
 
   nav ul {
     position: absolute;
-    right: 10px;
+    right: 0px;
     top: 10px;
     padding: 7px;
 
@@ -114,6 +116,7 @@ header#top {
       margin-right: 10px;
 
       a {
+        color: #f8f8f8;
         text-shadow: 0 1px 1px #000;
       }
     }
