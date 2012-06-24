@@ -6,6 +6,10 @@ module Views
 
       attr_reader :tweet
 
+      def page_title
+        "CouchTweet / %s: %s" % [user.id, truncate(tweet.text, length: 30)]
+      end
+
       def sidebar
         false
       end

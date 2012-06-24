@@ -9,6 +9,10 @@ module Views
       attr_reader :current_user
       attr_reader :user
 
+      def page_title
+        'CouchTweet'
+      end
+
       def link_to_home
         link_to('Home', root_path)
       end
