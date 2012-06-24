@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+command -v brew > /dev/null 2>&1 || {
+  echo >&2 "Install Homebrew from https://github.com/mxcl/homebrew/wiki/installation"
+  exit 1
+}
+
+brew update
+
+command -v couchdb >/dev/null 2>&1 || {
+  echo "==> Installing couchdb . . ."
+  brew install couchdb
+}
+
+echo "==> Installing gem dependencies . . ."
+bundle install
+
+echo "==> Populating development database . . ."
+bundle exec rake db:setup
+
+echo "==> CouchTweet is installed!"

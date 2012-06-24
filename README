@@ -9,17 +9,14 @@ high traffic load tests.
 
 == Getting Started
 
-1. Start CouchDB.
-2. cd couchtweet
-3. Run rake db:setup to populate CouchDB with some initial documents (users,
-   tweets, followers, etc.)
-4. Run "rails server" to start Rails.
-5. Go to http://localhost:3000/ in your web browser.
-6. Sign in with user1 and "user1 password".
+1. script/bootstrap
+2. script/server
+3. open http://localhost:3000/
+4. Sign in with user1 and "user1 password"
 
 == Dependencies
 
-* couchdb >= 1.1.0
+* couchdb >= 1.2.0
 * ruby >= 1.9.3
 
 == Contact
@@ -31,4 +28,3 @@ I'll do my best to answer any questions!
 == License
 
 CouchTweet is released under the MIT license.  Check the LICENSE file for details.
-
