@@ -238,15 +238,15 @@ class User < CouchRest::Model::Base
 
   private
 
-  # Update all of our follower's timelines with the new Tweet. We would push
-  # this job onto a queue for later processing in a real application because
-  # this user may have 25 million followers.
+  # Update all of our follower's timelines, as well as our own, with the new
+  # Tweet. We would push this job onto a queue for later processing in a real
+  # application because this user may have 25 million followers.
   #
   # tweet - The Tweet to add to followers' timelines.
   #
   # Returns nothing.
   def update_timelines(tweet)
-    followers.each do |follower|
+    [*followers, self].each do |follower|
       entry = TimelineEntry.new(user: follower, tweet: tweet).to_hash
       tweet.database.bulk_save_doc(entry)
     end
