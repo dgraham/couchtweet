@@ -86,6 +86,7 @@ class User < CouchRest::Model::Base
   #
   # Returns the new Tweet.
   def tweet(text, source)
+    text = (text || '').strip
     tweet = Tweet.create(user: self, source: source, text: text)
     update_timelines(tweet)
     tweet
