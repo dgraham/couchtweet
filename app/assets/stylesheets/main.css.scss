@@ -117,23 +117,6 @@ footer#bottom {
   }
 }
 
-#sidebar {
-  min-height: 100%;
-  width: 180px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #f8f8f8;
-  font-size: 12px;
-  border-left: 1px solid #efefef;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-#sidebar-container {
-  padding: 10px;
-}
-
 #content > ul {
   width: 520px;
 
@@ -207,73 +190,6 @@ li.user {
   input[type="submit"] {
     float: right;
   }
-}
-
-#user-stats {
-  margin-top: 10px;
-
-  li {
-    display: inline-block;
-    margin-right: 15px;
-
-    a span.count {
-      font-weight: bold;
-      display: block;
-      color: #222;
-    }
-
-    a:hover span.count {
-      color: inherit;
-      text-decoration: none;
-    }
-  }
-}
-
-#user-links {
-  margin-top: 10px;
-  margin: 10px -10px 0 -10px;
-
-  li {
-    font-size: 14px;
-    padding: 5px 10px;
-
-    a:hover {
-      text-decoration: none;
-    }
-
-    strong {
-      float: right;
-    }
-  }
-
-  li:hover {
-    background-color: #fff;
-  }
-}
-
-#current-user-info h3 {
-  a {
-    font-weight: bold;
-    color: inherit;
-  }
-
-  a:hover {
-    text-decoration: none;
-  }
-
-  a:hover #tweet-count {
-    text-decoration: underline;
-  }
-
-  #tweet-count {
-    display: block;
-    font-size: 11px;
-    font-weight: normal;
-  }
-}
-
-#user-info li {
-  margin-bottom: 3px;
 }
 
 #tweet-content {
