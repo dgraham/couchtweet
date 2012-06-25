@@ -1,7 +1,8 @@
+<h2>What's happening?</h2>
 <form id="tweet-form" action="{{ current_user_status_path }}" method="post">
   <input type="hidden" name="authenticity_token" value="{{ form_authenticity_token }}"/>
-  <h2>What's happening?</h2>
   <textarea id="status-text" name="status" placeholder="Compose new Tweet..."></textarea>
+  <span class="count">140</span>
   <input type="submit" value="Tweet"/>
 </form>
 <ul class="tweets">

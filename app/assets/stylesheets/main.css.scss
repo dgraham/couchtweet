@@ -21,7 +21,6 @@ h2 {
   font-weight: bold;
   font-size: 18px;
   line-height: 20px;
-  margin-bottom: 5px;
   padding: 12px;
 }
 
@@ -178,17 +177,32 @@ li.user {
 }
 
 #tweet-form {
-  width: 500px;
-  margin-bottom: 20px;
+  background: #f5f5f5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 105px;
+  padding: 12px;
+  width: 495px;
 
   textarea {
-    margin-left: 12px;
     width: 475px;
-    height: 19px;
+    min-height: 50px;
   }
 
   input[type="submit"] {
     float: right;
+  }
+
+  .count {
+    color: #ccc;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-shadow: 0 1px 1px #fff;
+  }
+
+  .count.warn {
+    color: #AC1F23;
   }
 }
 
