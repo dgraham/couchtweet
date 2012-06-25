@@ -1,0 +1,20 @@
+/* Common SASS functions and variables to be imported into other stylesheets. */
+
+$sans-serif: "Helvetica Neue", sans-serif;
+$serif: Georgia, serif;
+
+@mixin linear-gradient($start, $stop) {
+  background: $stop;
+  background: -moz-linear-gradient($start, $stop);
+  background: -ms-linear-gradient($start, $stop);
+  background: -o-linear-gradient($start, $stop);
+  background: -webkit-linear-gradient($start, $stop);
+}
+
+@mixin radial-gradient($start, $stop) {
+  background: $stop;
+  background: -moz-radial-gradient($start, $stop);
+  background: -ms-radial-gradient($start, $stop);
+  background: -o-radial-gradient($start, $stop);
+  background: -webkit-radial-gradient($start, $stop);
+}

@@ -1,19 +1,4 @@
-
-@mixin linear-gradient($start, $stop) {
-  background: $stop;
-  background: -moz-linear-gradient($start, $stop);
-  background: -ms-linear-gradient($start, $stop);
-  background: -o-linear-gradient($start, $stop);
-  background: -webkit-linear-gradient($start, $stop);
-}
-
-@mixin radial-gradient($start, $stop) {
-  background: $stop;
-  background: -moz-radial-gradient($start, $stop);
-  background: -ms-radial-gradient($start, $stop);
-  background: -o-radial-gradient($start, $stop);
-  background: -webkit-radial-gradient($start, $stop);
-}
+@import "common";
 
 * {
   margin: 0;
@@ -21,16 +6,14 @@
 }
 
 html {
-  height: 100%;
   @include radial-gradient(#fff, #f0f0f0);
 }
 
 body {
   color: #333;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: $sans-serif;
   font-size: 14px;
   line-height: 18px;
-  height: 100%;
 }
 
 h2 {
@@ -63,11 +46,6 @@ a img {
 
 ul {
   list-style: none;
-}
-
-textarea {
-  font-size: 100%;
-  padding: 2px;
 }
 
 #content {
@@ -209,7 +187,7 @@ footer#bottom {
 li.user {
   .bio {
     color: #777;
-    font-family: Georgia, serif;
+    font-family: $serif;
     font-style: italic;
     font-size: 13px;
     line-height: 18px;
@@ -221,18 +199,9 @@ li.user {
   margin-bottom: 20px;
 
   textarea {
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 #fff;
-    display: block;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 13px;
+    margin-left: 12px;
     width: 475px;
     height: 19px;
-    line-height: 18px;
-    margin: 0 0 5px 12px;
-    padding: 6px 8px 5px;
-    outline: none;
   }
 
   input[type="submit"] {
@@ -341,7 +310,7 @@ li.user {
   }
 
   #tweet-text {
-    font-family: Georgia, serif;
+    font-family: $serif;
     font-size: 22px;
     line-height: 28px;
   }
@@ -353,30 +322,5 @@ li.user {
       padding-bottom: 10px;
       margin: 10px 0;
     }
-  }
-}
-
-#login-form {
-  width: 50%;
-  margin: 50px auto;
-
-  input[type="text"],
-  input[type="password"] {
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 #fff;
-    display: block;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 13px;
-    width: 98%;
-    height: 19px;
-    line-height: 18px;
-    margin: 0 0 5px 0;
-    padding: 6px 8px 5px;
-    outline: none;
-  }
-
-  input[type="submit"] {
-    float: right;
   }
 }
