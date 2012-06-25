@@ -204,6 +204,10 @@ li.user {
   .count.warn {
     color: #AC1F23;
   }
+
+  :disabled {
+    opacity: 0.35;
+  }
 }
 
 #tweet-content {
