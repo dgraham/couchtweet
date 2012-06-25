@@ -1,5 +1,7 @@
 /* Styles for the login page. */
 
+@import "common";
+
 body#login-page #content {
   min-height: 220px;
 }
@@ -14,10 +16,12 @@ body#login-page #content {
     margin-bottom: 15px;
     text-align: center;
   }
+
   input[type="text"],
   input[type="password"] {
     width: 254px;
   }
+
   input[type="submit"] {
     margin-top: 10px;
   }
