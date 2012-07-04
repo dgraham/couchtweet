@@ -7,6 +7,8 @@ class Tweet < CouchRest::Model::Base
   validates_length_of :source, in: 1..255
   validates_length_of :text,   in: 1..140
 
+  after_create :update_timelines
+
   attr_accessor :stars
 
   design do
@@ -48,5 +50,29 @@ class Tweet < CouchRest::Model::Base
   # Returns a CouchRest::Model::Designs::View.
   def favorites
     @favorites ||= Favorite.by_tweet_id.key(id)
+  end
+
+  # Broadcast the tweet to the author's followers so it will appear on their
+  # timelines. This method should be called from a resque background job in
+  # case the user has millions of followers that need to be notified.
+  #
+  # Returns nothing.
+  def broadcast
+    user.followers.each do |follower|
+      entry = TimelineEntry.new(user: follower, tweet: self).to_hash
+      self.database.bulk_save_doc(entry)
+    end
+    self.database.bulk_save
+  end
+
+  private
+
+  # Queue a resque job to update the author's follower timelines. Update the
+  # author's timeline here so the new tweet will appear after a page refresh.
+  #
+  # Returns nothing.
+  def update_timelines
+    TimelineEntry.create(user: user, tweet: self)
+    Resque.enqueue(UpdateTimeline, id)
   end
 end

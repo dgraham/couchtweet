@@ -70,7 +70,7 @@ class User < CouchRest::Model::Base
     write_attribute(:password, BCrypt::Password.create(password))
   end
 
-  # Create and save a new Tweet. Update all followers' timelines.
+  # Create and save a new Tweet. Update all follower timelines.
   #
   # text   - The String text message to share with the world.
   # source - The String client source identifier from which the tweet was sent
@@ -87,9 +87,7 @@ class User < CouchRest::Model::Base
   # Returns the new Tweet.
   def tweet(text, source)
     text = (text || '').strip
-    tweet = Tweet.create(user: self, source: source, text: text)
-    update_timelines(tweet)
-    tweet
+    Tweet.create(user: self, source: source, text: text)
   end
 
   # Return a View of this user's tweets ordered newest to oldest. The View
@@ -234,22 +232,5 @@ class User < CouchRest::Model::Base
     if follow = Follower.by_follower_id.key(id)
       follow.destroy
     end
-  end
-
-  private
-
-  # Update all of our follower's timelines, as well as our own, with the new
-  # Tweet. We would push this job onto a queue for later processing in a real
-  # application because this user may have 25 million followers.
-  #
-  # tweet - The Tweet to add to followers' timelines.
-  #
-  # Returns nothing.
-  def update_timelines(tweet)
-    [*followers, self].each do |follower|
-      entry = TimelineEntry.new(user: follower, tweet: tweet).to_hash
-      tweet.database.bulk_save_doc(entry)
-    end
-    tweet.database.bulk_save
   end
 end
