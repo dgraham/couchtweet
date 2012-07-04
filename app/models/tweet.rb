@@ -8,6 +8,7 @@ class Tweet < CouchRest::Model::Base
   validates_length_of :text,   in: 1..140
 
   after_create :update_timelines
+  after_destroy :retract_tweet
 
   attr_accessor :stars
 
@@ -74,5 +75,12 @@ class Tweet < CouchRest::Model::Base
   def update_timelines
     TimelineEntry.create(user: user, tweet: self)
     Resque.enqueue(UpdateTimeline, id)
+  end
+
+  # Queue a resque job to delete this tweet from all timelines.
+  #
+  # Returns nothing.
+  def retract_tweet
+    Resque.enqueue(RetractTweet, id)
   end
 end
