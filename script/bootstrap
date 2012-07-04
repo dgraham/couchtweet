@@ -9,13 +9,18 @@ command -v brew > /dev/null 2>&1 || {
 
 brew update
 
+command -v redis-server >/dev/null 2>&1 || {
+  echo "==> Installing redis . . ."
+  brew install redis
+}
+
 command -v couchdb >/dev/null 2>&1 || {
   echo "==> Installing couchdb . . ."
   brew install couchdb
 }
 
 echo "==> Installing gem dependencies . . ."
-bundle install
+bundle install --binstubs --path vendor/gems
 
 echo "==> Populating development database . . ."
 bundle exec rake db:setup

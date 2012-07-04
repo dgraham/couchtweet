@@ -1,5 +1,8 @@
 .DS_Store
 /.bundle
 /db/*.sqlite3
+/db/*.rdb
 /log/*.log
 /tmp
+vendor
+bin
