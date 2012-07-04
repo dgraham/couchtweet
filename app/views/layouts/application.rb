@@ -36,6 +36,10 @@ module Views
         link_to(image_tag('logo.svg', alt: 'CouchTweet'), root_path)
       end
 
+      def delete_image_tag
+        image_tag('trash.svg', alt: 'Delete', class: 'delete')
+      end
+
       def body_class
         sidebar ? '' : 'class="narrow"'.html_safe
       end

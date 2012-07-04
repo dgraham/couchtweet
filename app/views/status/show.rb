@@ -25,6 +25,13 @@ module Views
       def pluralized_favorites
         pluralize(tweet.favorites.count, 'person', 'people')
       end
+
+      def link_to_delete
+        if tweet.author?(current_user)
+          url = user_statu_path(tweet.user, tweet)
+          link_to(delete_image_tag + 'Delete', url, :method => :delete)
+        end
+      end
     end
   end
 end
