@@ -40,6 +40,10 @@ module Views
         image_tag('trash.svg', alt: 'Delete', class: 'delete')
       end
 
+      def star_image_tag
+        image_tag('star.svg', alt: 'Favorite', class: 'favorite')
+      end
+
       def body_class
         sidebar ? '' : 'class="narrow"'.html_safe
       end

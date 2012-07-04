@@ -259,9 +259,10 @@ li.user {
   }
 }
 
-img.delete {
+img.delete, img.favorite {
   height: 16px;
   width: 16px;
   position: relative;
   top: 4px;
+  margin-left: 5px;
 }
