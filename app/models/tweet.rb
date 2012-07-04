@@ -24,6 +24,15 @@ class Tweet < CouchRest::Model::Base
       reduce: '_count'
   end
 
+  # Determine whether the User created this Tweet.
+  #
+  # user - Check if this User is the author.
+  #
+  # Returns true if the User authored this Tweet.
+  def author?(user)
+    self.user == user
+  end
+
   # Parse the created timestamp from the document's id.
   #
   # All document ids are encoded with a timestamp because we're running CouchDB
