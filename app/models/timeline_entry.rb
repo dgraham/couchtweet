@@ -17,5 +17,17 @@ class TimelineEntry < CouchRest::Model::Base
         }
       },
       reduce: '_count'
+
+    # Index timeline entries by tweet_id so we can find and delete a particular
+    # tweet from all timelines.
+    view :by_tweet_id,
+      map: %q{
+        function(doc) {
+          if (doc.type == 'TimelineEntry' && doc.user_id && doc.tweet_id) {
+            emit(doc.tweet_id, null);
+          }
+        }
+      },
+      reduce: '_count'
   end
 end
