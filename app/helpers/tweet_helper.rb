@@ -6,6 +6,10 @@ module TweetHelper
   # controller that renders this view must populate a @tweets Array with
   # Tweet objects.
   #
+  # The array may contain nil entries if the tweet has been deleted, but the
+  # user's timeline still references it. This method ignores nil tweets while
+  # the RetractTweet resque job updates the timeline.
+  #
   # Returns a Hash of tweet view data:
   #  :text       - The tweet's content String.
   #  :source     - The app String used to post the tweet.
@@ -25,7 +29,7 @@ module TweetHelper
   #    :url      - The url String to their profile.
   #    :gravatar - The url String to their Gravatar image.
   def tweets
-    @tweets.map do |tweet|
+    @tweets.compact.map do |tweet|
       {
         text: tweet.text,
         source: tweet.source,
