@@ -32,6 +32,13 @@ module Views
           link_to(delete_image_tag + 'Delete', url, :method => :delete)
         end
       end
+
+      def link_to_favorite
+        if current_user
+          url = user_favorite_path(current_user, tweet)
+          link_to(star_image_tag + 'Favorite', url, :method => :put)
+        end
+      end
     end
   end
 end
