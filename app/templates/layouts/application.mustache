@@ -15,10 +15,10 @@
           <li>{{ link_to_home }}</li>
           {{#current_user}}
             <li>{{ link_to_profile }}</li>
-            <li>{{ link_to_logout }}</li>
+            <li>{{ link_to_signout }}</li>
           {{/current_user}}
           {{^current_user}}
-            <li>{{ link_to_login }}</li>
+            <li>{{ link_to_signin }}</li>
           {{/current_user}}
         </ul>
       </nav>

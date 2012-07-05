@@ -20,12 +20,12 @@ module Views
         link_to('Home', root_path)
       end
 
-      def link_to_login
-        link_to('Sign in', new_session_path)
+      def link_to_signin
+        link_to('Sign in', signin_path)
       end
 
-      def link_to_logout
-        link_to('Sign out', logout_path)
+      def link_to_signout
+        link_to('Sign out', signout_path)
       end
 
       def link_to_profile

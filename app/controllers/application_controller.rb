@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    redirect_to new_session_path unless session[:user_id]
+    redirect_to signin_path unless session[:user_id]
   end
 end

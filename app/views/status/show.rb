@@ -28,7 +28,7 @@ module Views
 
       def link_to_delete
         if tweet.author?(current_user)
-          url = user_statu_path(tweet.user, tweet)
+          url = user_tweet_path(tweet.user, tweet)
           link_to(delete_image_tag + 'Delete', url, :method => :delete)
         end
       end

@@ -33,7 +33,7 @@ module TweetHelper
       {
         text: tweet.text,
         source: tweet.source,
-        url: user_statu_path(tweet.user.id, tweet.id),
+        url: user_tweet_path(tweet.user.id, tweet.id),
         created_at: {
           millis: (tweet.created_at.to_f * 1000).to_i,
           date: datef(tweet.created_at),

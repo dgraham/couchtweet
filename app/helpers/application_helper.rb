@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def current_user_status_path
-    user_status_path(current_user.id)
+    user_tweets_path(current_user.id)
   end
 
   def profile_path
