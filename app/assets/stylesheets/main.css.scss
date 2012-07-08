@@ -22,6 +22,7 @@ h2 {
   font-size: 18px;
   line-height: 20px;
   padding: 12px;
+  position: relative;
 }
 
 h3 {
@@ -114,6 +115,10 @@ footer#bottom {
   p {
     padding: 12px;
   }
+}
+
+#content > h2 {
+  width: 496px;
 }
 
 #content > ul {
@@ -265,4 +270,11 @@ img.delete, img.favorite {
   position: relative;
   top: 4px;
   margin-left: 5px;
+}
+
+h2 a.follow, h2 a.unfollow {
+  position: absolute;
+  right: 12px;
+  font-size: 12px;
+  font-weight: normal;
 }
