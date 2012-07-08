@@ -214,13 +214,23 @@ class User < CouchRest::Model::Base
     @following ||= Follower.by_follower_id.key(id).descending
   end
 
+  # Determine whether or not we're following a user.
+  #
+  # user - The User with which we have a follower relationship.
+  #
+  # Returns true if we're following this User.
+  def following?(user)
+    !find_follower(user).nil?
+  end
+
   # Follow a user so their tweets appear in our timeline.
   #
   # user - The User to follow.
   #
-  # Returns a Follower.
+  # Returns a Follower or nil if we try to follow ourselves.
   def follow(user)
-    Follower.create(user: user, follower: self)
+    return if user == self
+    find_follower(user) || Follower.create(user: user, follower: self)
   end
 
   # Remove a user from our timeline so no future tweets from them will appear.
@@ -229,8 +239,20 @@ class User < CouchRest::Model::Base
   #
   # Returns nothing.
   def unfollow(user)
-    if follow = Follower.by_follower_id.key(id)
-      follow.destroy
+    if follower = find_follower(user)
+      follower.destroy
     end
+  end
+
+  private
+
+  # Find the following relationship to a user.
+  #
+  # user - The User we're following (or not).
+  #
+  # Returns a Follower relationship to the User or nil if we're not following
+  # them.
+  def find_follower(user)
+    Follower.by_user_id_and_follower_id.key([user.id, id]).first
   end
 end
