@@ -1,0 +1,7 @@
+<%= @favorite.user.name %> (@<%= @favorite.user.id %>) liked one of your tweets!
+
+"<%= @favorite.tweet.text %>"
+
+Read their tweets at <%= user_url(@favorite.user, host: 'localhost:3000') %>.
+
+<3 CouchTweet
