@@ -5,6 +5,8 @@ class Follower < CouchRest::Model::Base
   after_create :notify_following
 
   design do
+    # Index follower relationships by user_id so we can find a list of a user's
+    # followers.
     view :by_user_id,
       map: %q{
         function(doc) {
@@ -15,6 +17,7 @@ class Follower < CouchRest::Model::Base
       },
       reduce: '_count'
 
+    # Index by follower_id so we can find a list of users a user is following.
     view :by_follower_id,
       map: %q{
         function(doc) {
@@ -24,6 +27,17 @@ class Follower < CouchRest::Model::Base
         }
       },
       reduce: '_count'
+
+    # Index that allows us to quickly determine if a follower relationship
+    # exists between two users.
+    view :by_user_id_and_follower_id,
+      map: %q{
+        function(doc) {
+          if (doc.type == 'Follower' && doc.user_id && doc.follower_id) {
+            emit([doc.user_id, doc.follower_id], null);
+          }
+        }
+      }
   end
 
   private
