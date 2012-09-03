@@ -63,8 +63,12 @@ class User < CouchRest::Model::Base
   #
   # Returns nothing.
   def password=(password)
-    # already bcrypted
-    write_attribute(:password, BCrypt::Password.new(password))
+    if password.blank?
+      write_attribute(:password, nil)
+    else
+      # already bcrypted
+      write_attribute(:password, BCrypt::Password.new(password))
+    end
   rescue
     # plain text
     write_attribute(:password, BCrypt::Password.create(password))
@@ -256,3 +260,4 @@ class User < CouchRest::Model::Base
     Follower.by_user_id_and_follower_id.key([user.id, id]).first
   end
 end
+
