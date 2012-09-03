@@ -12,16 +12,9 @@ module Views
       end
 
       def following
-        user.following.map do |user|
-          {
-            id: user.id,
-            name: user.name,
-            bio: user.bio,
-            url: user_path(user.id),
-            gravatar: gravatar_for(user.email)
-          }
-        end
+        UserExhibit.wrap(user.following.all, self).map(&:to_hash)
       end
     end
   end
 end
+
