@@ -12,7 +12,7 @@ module TweetHelper
   #
   # Returns an Array of tweet view Hashes.
   def tweets
-    TweetExhibit.wrap(@tweets, self).map(&:to_hash)
+    TweetExhibit.decorate(@tweets, self).map(&:to_hash)
   end
 end
 

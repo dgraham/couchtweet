@@ -11,7 +11,7 @@ module Views
       end
 
       def followers
-        UserExhibit.wrap(user.followers.all, self).map(&:to_hash)
+        UserExhibit.decorate(user.followers.all, self).map(&:to_hash)
       end
     end
   end

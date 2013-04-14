@@ -7,7 +7,7 @@ describe TweetExhibit do
   let(:exhibit) { TweetExhibit.new(tweet, view) }
 
   describe '#user' do
-    it 'wraps with UserExhibit' do
+    it 'decorates with UserExhibit' do
       exhibit.user.is_a? UserExhibit
     end
   end

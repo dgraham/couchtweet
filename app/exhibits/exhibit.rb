@@ -17,10 +17,10 @@ class Exhibit < SimpleDelegator
   #          included in the returned Array.
   # view   - The mustache view context.
   #
-  #   UserExhibit.wrap(users, view)
+  #   UserExhibit.decorate(users, view)
   #
   # Returns an Array of exhibits.
-  def self.wrap(*models, view)
+  def self.decorate(*models, view)
     models.flatten.compact.map {|obj| new(obj, view) }
   end
 
@@ -36,10 +36,10 @@ class Exhibit < SimpleDelegator
     super(model)
   end
 
-  # Override the class method to return the wrapped model's class, so Rails
-  # believes it's dealing directly with the model, not the decorator.
-  def class
-    __getobj__.class
+  # Rails helpers like url_for and link_to will call this method first to
+  # convert the object to an ActiveModel instance.
+  def to_model
+    model
   end
 end
 

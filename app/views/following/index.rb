@@ -12,7 +12,7 @@ module Views
       end
 
       def following
-        UserExhibit.wrap(user.following.all, self).map(&:to_hash)
+        UserExhibit.decorate(user.following.all, self).map(&:to_hash)
       end
     end
   end
