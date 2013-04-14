@@ -53,11 +53,11 @@ module Views
       end
 
       def user_sidebar
-        Mustache.render_file('app/templates/users/_sidebar', self)
+        render partial: 'users/sidebar'
       end
 
       def welcome_sidebar
-        Mustache.render_file('app/templates/welcome/_sidebar', self)
+        render partial: 'welcome/sidebar'
       end
 
       def stylesheets
